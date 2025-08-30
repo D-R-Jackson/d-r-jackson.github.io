@@ -66,7 +66,7 @@ function createTrail(c ,startX, startY,xInt ,yInt){
             clearInterval(creationInterval)
         }
         x+=1
-    }, 1)
+    }, 2)
     
 }
 
@@ -81,3 +81,5 @@ Array.prototype.forEach.call(circles, (circle)=>{
 })
 
 
+
+ 
