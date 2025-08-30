@@ -66,7 +66,7 @@ function createTrail(c ,startX, startY,xInt ,yInt){
             clearInterval(creationInterval)
         }
         x+=1
-    }, 2)
+    }, 1)
     
 }
 
