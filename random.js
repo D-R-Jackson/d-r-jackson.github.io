@@ -4,6 +4,8 @@
 for(i = 0; i < 10; i++){
     var c = document.createElement('span')
     c.className ="circle"
+    c.style.setProperty('--positionX', GetRandomInt(window.innerWidth)+'px')
+    c.style.setProperty('--positionY', GetRandomInt(window.innerHeight)+'px')
     document.body.appendChild(c)
 }
 const circles = document.getElementsByClassName('circle')
