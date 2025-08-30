@@ -51,7 +51,7 @@ function createTrail(c ,startX, startY,xInt ,yInt){
         t.style.left = startX +'px'
         t.style.top = startY+'px'
        t.style.transform = `translate(${rect.left}px, ${rect.top}px)`
-        t.style.transition = 'transform 2s ease, opacity 2s ease'
+        t.style.transition = 'transform 2s linear, opacity 2s linear'
         t.style.backgroundColor = '#ffffff'
         
         const targetX = xInt+c.offsetWidth
