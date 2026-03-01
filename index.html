@@ -1,15 +1,41 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-
-  <title>Daniel Jackson</title>
-  <link rel="stylesheet" href="./stylesheet.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    
 </head>
-
 <body>
+    <p>Daniel Jacksons Portfolio [Version 0.0.1] <br> Type "help" for commands</p>
+    <div id="terminalOutput">
+        <div class="terminalLine">         
+            <label class="directory">C:\Users\Guest></label>         
+            <input type="text" class="command" autofocus>     
+        </div>
+    </div>
 
-  <script src="./random.js"></script>
+
+    <div id='contactWindow' class="terminalWindow" style="display: none;">
+        <div class="titleBar" id="titleBar">
+            <span class="title">contact</span>
+            <button class="closeButton">x</button>
+        </div>
+        <div class="content">
+            <p>Feel free to contact me below!</p>
+            <form id="contactForm">
+                <input type="text" id="nameInput"placeholder="name"><br>
+                <input type="text" id="emailInput" placeholder="email"><br>
+                <textarea id="messageInput" rows="5" placeholder="message"></textarea>
+                <button type="submit" id="sendButton">Send</button>
+            </form>
+            <div id="formStatus"></div>
+        </div>
+    </div>
+    <script type="module" src="contactWindow.js"></script>
+    <script type="module" src="contact.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="module" src="command.js"></script>
 </body>
 </html>

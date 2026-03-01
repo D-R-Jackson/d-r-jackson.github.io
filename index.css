@@ -1,0 +1,87 @@
+        @font-face{
+            font-family: jetBrains;
+            src: url(JetBrainsMono-Regular.ttf);
+        }
+        *{
+            font-family: jetBrains;
+        }
+        body{
+            background-color: #0c0c0c;
+            color: #c9d1d9;
+            pointer-events:all;
+        }
+        input,textarea{
+            background-color: #0c0c0c;
+            border: transparent;
+            color: #c9d1d9;
+            outline: none;
+        }
+
+        .terminalWindow{
+            position: fixed;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%,0);
+            width: 90%;
+            max-width: 500px;
+            max-height: 500px;
+            background: #141414;
+            border: 1px solid #30363d;
+            border-radius: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            z-index: 1000;
+            color: #c9d1d9;
+        }
+        .titleBar{
+            background: #161b22;
+            padding: 8px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: move;
+            user-select: none;
+        }
+        .title{
+            font-weight: bold;
+        }
+        .closeButton{
+            background: #e81123;
+            border: none;
+            color: white;
+            font-size: 16px;
+            width: 24px;
+            height: 24px;
+            border-radius: 0;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .content{
+            padding: 16px;
+        }
+        #contactForm button[type='submit']{
+            position: absolute;
+            top: 17%;
+            right: 2%;
+
+            padding: 1% 2%;
+            background-color: #0c0c0c;
+            border-radius: 0;
+            border:none;
+            cursor: pointer;
+            color: #c9d1d9;
+        }
+        #contactForm button[type='submit']:hover{
+            background-color: #0f0f0f;
+        }
+        #contactForm input{
+            padding: 2px;
+        }
+        .terminalWindow .content textarea{
+            width: 80%;
+            padding: 8px;
+            resize: none;
+            min-height: 100px;
+            font-size: small;
+        }
+        
