@@ -1,6 +1,4 @@
-//template_6nd3ba8
-//service_901l9s9
-//hnwgVKN__Tebwn9JO
+
 emailjs.init('hnwgVKN__Tebwn9JO');
 
 export function SendEmail(name, email, message){
@@ -12,7 +10,7 @@ export function SendEmail(name, email, message){
 
     return emailjs.send(
         'service_901l9s9',
-        'template_6nd3ba8',
+        'template_kjefd69',
         templateParams
     ).then((response) =>{
         console.log('email sent', response.status, response.text);

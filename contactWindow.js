@@ -68,52 +68,59 @@ document.addEventListener('mouseup',()=>{
     if(titleBar) titleBar.style.cursor = 'move';
 })
 
-const form = document.getElementById('contactForm');
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm');
+    
+    if (!form) {
+        console.error('contactForm not found');
+        return;
+    }
 
-if (form) {
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
+        e.stopPropagation();
 
-        const nameInput    = document.getElementById('nameInput');
-        const emailInput   = document.getElementById('emailInput');
+        const nameInput = document.getElementById('nameInput');
+        const emailInput = document.getElementById('emailInput');
         const messageInput = document.getElementById('messageInput');
-
-        if (!nameInput || !emailInput || !messageInput) {
-            console.error("inputs missing");
-            return;
-        }
+        const sendButton = document.getElementById('sendButton');
+        const statusDiv = document.getElementById('formStatus');
 
         const name = nameInput.value.trim();
         const email = emailInput.value.trim();
         const message = messageInput.value.trim();
 
-        console.log("trying to send:", { name, email, message });
+        console.log('form values:', { name, email, message });
 
         if (!name || !email || !message) {
-            alert("fill in all fields");
+            statusDiv.innerText = 'fill everything in please';
+            statusDiv.style.color = 'tomato';
             return;
         }
 
-        const sendBtn = document.getElementById('sendButton');
-        sendBtn.disabled = true;
-        sendBtn.textContent = "Sending";
+        sendButton.disabled = true;
+        sendButton.innerText = 'Sending';
+        statusDiv.innerText = '';
 
         try {
             const result = await SendEmail(name, email, message);
-            console.log("send result:", result);
+            console.log('emailJS result:', result);
 
             if (result.success) {
+                statusDiv.textContent = `Message sent! I'll reply soon.`;
+                statusDiv.style.color = 'limegreen';
                 form.reset();
             } else {
-                console.error(result.error);
+                statusDiv.textContent = 'Failed to send';
+                statusDiv.style.color = "tomato";
             }
         } catch (err) {
-            console.error("error:", err);
+            console.error('Submit handler error:', err);
+            statusDiv.textContent = 'Network or code error, try again';
+            statusDiv.style.color = 'tomato';
         } finally {
-            sendBtn.disabled = false;
-            sendBtn.textContent = "Send";
+            sendButton.disabled = false;
+            sendButton.textContent = 'Send';
         }
     });
-} else {
-    console.error("'contactForm' not found");
-}
+});

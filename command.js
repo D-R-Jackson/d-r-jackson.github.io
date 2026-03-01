@@ -36,7 +36,8 @@ currentCommandLine.addEventListener('keypress',(event)=>{
 
 document.querySelector('.closeButton').addEventListener('click',()=>{
     document.getElementById('contactWindow').style.display = 'none';
-    
+    const statusDiv = document.getElementById('formStatus');
+    statusDiv.innerText = '';
 })
 
 console.log(commandInput.length)
