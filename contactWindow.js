@@ -68,14 +68,52 @@ document.addEventListener('mouseup',()=>{
     if(titleBar) titleBar.style.cursor = 'move';
 })
 
-document.getElementById("sendButton").addEventListener('click',()=>{
-    const name = document.getElementById('nameInput')
-    const email = document.getElementById('emailInput')
-    const message = document.getElementById('messageInput')
-    SendEmail(name.value.trim(),email.value.trim(),message.value.trim());
-    setTimeout(function(){
-        name.value = '';
-        email.value = '';
-        message.value = '';
-    },25)
-})
+const form = document.getElementById('contactForm');
+
+if (form) {
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const nameInput    = document.getElementById('nameInput');
+        const emailInput   = document.getElementById('emailInput');
+        const messageInput = document.getElementById('messageInput');
+
+        if (!nameInput || !emailInput || !messageInput) {
+            console.error("inputs missing");
+            return;
+        }
+
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const message = messageInput.value.trim();
+
+        console.log("trying to send:", { name, email, message });
+
+        if (!name || !email || !message) {
+            alert("fill in all fields");
+            return;
+        }
+
+        const sendBtn = document.getElementById('sendButton');
+        sendBtn.disabled = true;
+        sendBtn.textContent = "Sending";
+
+        try {
+            const result = await SendEmail(name, email, message);
+            console.log("send result:", result);
+
+            if (result.success) {
+                form.reset();
+            } else {
+                console.error(result.error);
+            }
+        } catch (err) {
+            console.error("error:", err);
+        } finally {
+            sendBtn.disabled = false;
+            sendBtn.textContent = "Send";
+        }
+    });
+} else {
+    console.error("'contactForm' not found");
+}
