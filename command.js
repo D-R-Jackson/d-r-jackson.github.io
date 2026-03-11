@@ -9,10 +9,8 @@ const commandStructure = `
 const commands = ['aboutme', 'projects', 'help', 'skills', 'contact', 'clear']
 
 const projects = [
-    {title: 'Groovay', desc: "Groovay description here", link: 'https://github.com/D-R-Jackson/Groovay'},
-    {title: 'Groovay2', desc: "Groovay description here", link: 'https://github.com/D-R-Jackson/Groovay'},
-    {title: 'Groovay3', desc: "Groovay description here", link: 'https://github.com/D-R-Jackson/Groovay'},
-    {title: 'Groovay4', desc: "Groovay description here", link: 'https://github.com/D-R-Jackson/Groovay'},
+    {title: 'Groovay', desc: "Groovay is a spotify clone using Client Server architecture that i built in 3 months for my Computer Science A-Level NEA. <br> This was my first time using HTML, JS and CSS so its a little rough around the edges. <br> It only gets the music metadata from Spotify, Its all my own logic and designs. <br> It also features a simple LLM to generate a playlist based on the users prompt.", link: 'https://github.com/D-R-Jackson/Groovay'},
+    {title: 'This Portfiolo', desc: "Its the portfolio you're currently using, <br>I chose this design because i have a vendetta against CSS and prefer something more logical and simple. <br> Its made using HTML, JS and CSS and was my first time properly hosting a website.", link: 'https://github.com/D-R-Jackson/d-r-jackson.github.io'},
 ];
 const sPadding = '5ch'
 
@@ -106,8 +104,11 @@ function addNewLine(){
 }
 function AddNewProjectsLine(){
     const tempDiv = document.createElement('div');
+    const projectsCommandStructure =  `
+                          <label class="directory">C:\\Users\\Guest\\Projects></label>
+                          <input type="text" class="command">`;
     tempDiv.className = "terminalLine";
-    tempDiv.innerHTML = commandStructure;
+    tempDiv.innerHTML = projectsCommandStructure;
     var commandIndex = 0;
     terminalOutput.appendChild(tempDiv);
 
@@ -162,7 +163,7 @@ function help(){
     tempDiv.style.paddingLeft = sPadding;
 
     const helpList = document.createElement('p');
-    helpList.innerHTML = '-about me <br> -projects <br> -help <br> -skills <br> -contact <br> -clear';
+    helpList.innerHTML = '-aboutme <br> -projects <br> -help <br> -skills <br> -contact <br> -clear';
     tempDiv.appendChild(helpList);
     
     terminalOutput.appendChild(tempDiv);
@@ -171,14 +172,14 @@ function AboutMe(){
     const tempDiv = document.createElement('div');
     const introduction = document.createElement('p');
     tempDiv.style.paddingLeft = sPadding;
-    introduction.innerHTML = 'Introduction Bla bla bla bla bla bla bla use >br< to do the fucking new line';
+    introduction.innerHTML = `Im Dan, an 18 year old developer and electonics hobbyist. I love the combination of software and hardware.<br>I range from building web apps to programming microcontrollers.<br> I'm currently working towards studying mechatronics or CS with the goal of getting into Robotics engineering. <br>When im not coding im most likely fiddling with my car or climbing a mountain.`;
     tempDiv.appendChild(introduction);
     terminalOutput.appendChild(tempDiv);
 }
 function Skills(){
     const tempDiv = document.createElement('div');
     const skills = document.createElement('p');
-
+    tempDiv.style.paddingLeft = sPadding;
     skills.innerHTML = `<strong>Web Development (A-level project + this portfolio)</strong><br> 
                         <ul style="margin-left: 1.5rem; list-style-type: disc;">
                         <li>HTML&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - structure & semantics</li>
@@ -213,6 +214,8 @@ function Projects(){
     const p1Link = document.createElement('a');
     const p1Space = document.createElement('p');
     const project = projects[currentProject];
+
+    p1.style.paddingLeft = sPadding;
 
     p1Title.innerHTML = `<strong>${project.title}</strong>`;
     p1Desc.innerHTML = project.desc;
