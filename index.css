@@ -17,6 +17,25 @@
             outline: none;
         }
 
+        body.matrix{
+            color:#00ff41;
+            text-shadow: 0 0 2.5px #00ff41;
+        }
+        body.matrix.directory{
+            color:#00ff41
+        }
+        body.matrix input{
+            color:#00ff41;
+            text-shadow: 0 0 2.5px #00ff41;
+        }
+
+        .matrix a, .matrix a:visited, .matrix a:hover, .matrix a:active{
+            color:#00ff41;
+           /*`0 0 ${(opacity/4)*10}px #00ff41`*/
+           text-shadow: 0 0 2.5px #00ff41;
+            
+        }
+
         .terminalWindow{
             position: fixed;
             top: 15%;
