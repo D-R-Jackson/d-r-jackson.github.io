@@ -11,7 +11,7 @@ const commands = ['aboutme', 'projects', 'help', 'skills', 'contact', 'clear', '
 const projects = [
     {title: 'Groovay', desc: "Groovay is a spotify clone using Client Server architecture that i built in 3 months for my Computer Science A-Level NEA. <br> This was my first time using HTML, JS and CSS so its a little rough around the edges. <br> It only gets the music metadata from Spotify, Its all my own logic and designs. <br> It also features a simple LLM to generate a playlist based on the users prompt.", link: 'https://github.com/D-R-Jackson/Groovay'},
     {title: 'This Portfiolo', desc: "Its the portfolio you're currently using, <br>I chose this design because i have a vendetta against CSS and prefer something more logical and simple. <br> Its made using HTML, JS and CSS and was my first time properly hosting a website.", link: 'https://github.com/D-R-Jackson/d-r-jackson.github.io'},
-    {title: 'Dan-AI', desc: "A native GTK4 application written in C that provides a local AI chat interface for Ollama. It supports model discovery and switching, streamed responses, persistent conversations, multiple chat sessions, and local JSON-based chat storage.", link: 'https://github.com/D-R-Jackson/dan-ai'}
+    {title: 'Dan-AI', desc: "A native GTK4 application written in C that provides a local AI chat interface for Ollama. <br> It supports model discovery and switching, streamed responses, <br> persistent conversations, multiple chat sessions, and local JSON-based chat storage.", link: 'https://github.com/D-R-Jackson/dan-ai'}
 ];
 const sPadding = '5ch'
 
